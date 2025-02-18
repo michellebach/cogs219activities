@@ -20,10 +20,8 @@ for square_color in color_trials:
     square.draw()
     win.flip()
     core.wait(1)
-    if square.color[3]: # exercise 1
-        color.wait(1)
-        core.wait(0.05)
-    else: continue
+    win.flip()
+    core.wait(0.05)
     if square.color == "red": # exerise 5
          square.setOri(45)
          core.wait(1)

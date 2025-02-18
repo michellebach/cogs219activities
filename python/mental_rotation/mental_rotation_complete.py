@@ -21,8 +21,8 @@ separator=","
 
 #preload
 images_dictionary = load_files(os.path.join(os.getcwd(),"stimuli","images"),'.jpg',fileType="image",win=win)
-print(images_dictionary)
-print(images_dictionary['1_0_R'])
+#print(images_dictionary)
+#print(images_dictionary['1_0_R'])
 
 #add feedback
 correct_feedback = visual.TextStim(win, text = "Correct!",color="white", height=30, pos = (0,0))
@@ -44,11 +44,18 @@ data_file = open(os.path.join(os.getcwd(),'data',runtime_vars['subj_code']+'_dat
 header = separator.join(["subj_code","seed", 'image_name','item','angle','match','correct_response','response','rt'])
 data_file.write(header+'\n')
 
+#instructions
+insturction_text = "Press space bar to continue."
+instruction = visual.TextStim(win, text = insturction_text, color = 'white', height = 30,pos = (0,0))
+instruction.draw()
+win.flip()
+event.waitKeys(keyList=['space'])
+
 # trial loop
 for cur_trial in trial_list:
 
     #define current image
-    cur_image_name = cur_trial['image_name']
+    cur_image_name = cur_trial['image_name'] #calls image from dictionary
     cur_image = images_dictionary[cur_image_name]['stim']
 
     #set size
@@ -74,7 +81,7 @@ for cur_trial in trial_list:
         win.flip()
 
     # present feedback
-    cur_correct_response = cur_trial['correct_response']
+    cur_correct_response = cur_trial['correct_response'] # pulling from dictionary
     if response == cur_correct_response:
         #correct
         correct_feedback.draw()
@@ -101,6 +108,7 @@ for cur_trial in trial_list:
     
     #trial-end wait seconds
     core.wait(0.5)
+    
 
 data_file.close()
 win.close() #close the window

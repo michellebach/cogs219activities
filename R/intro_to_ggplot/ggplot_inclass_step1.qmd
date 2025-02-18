@@ -574,7 +574,7 @@ Here, I've set `color = "black"` within the `geom_smooth()` function, and now on
 -   [RStudio IDE](figures/rstudio-ide.pdf) --\> information about RStudio
 -   [RMarkdown](figures/rmarkdown.pdf) --\> information about writing in RMarkdown
 -   [RMarkdown reference](figures/rmarkdown-reference.pdf) --\> RMarkdown reference sheet
-- [Quarto reference](https://quarto.org/docs/guide/) --\> information about writing in Quarto
+-   [Quarto reference](https://quarto.org/docs/guide/) --\> information about writing in Quarto
 -   [Data visualization](figures/visualization-principles.pdf) --\> general principles of effective graphic design
 -   [ggplot2](figures/data-visualization.pdf) --\> specific information about ggplot
 
