@@ -50,6 +50,19 @@ overall_2A_block |>
 ```
 
 ## Plot it
+```{r}
+ggplot(overall_2A_block, aes(x = block_num, y = mean_accuracy,
+                             color = condition)) + 
+  geom_error(aes(ymin = mean_accuracy - sem,
+                 ymax = mean_accruacy + sem), width = 0)
+  geom_line() + 
+  geom_point(shape = 21, fill = "white", size = 3)
+  theme_cowplot() +
+  xlab("Block Number") + # renames axis
+  ylab("Mean Accuracy") + 
+  scale_y_continous(breaks=seq(0, 1, 0.2), lomots= c(0, 35, 1)) #tricky to use, can cut off data
+```
+
 
 ```{r, warning=F}
 p <- ggplot(overall_2A_block, aes(block_num,mean_accuracy))+
@@ -93,7 +106,7 @@ p +
   geom_image(data=image_d,aes(image=image_path),size=0.15)
 ```
 
-## Summarize overall within-subjects effects
+## Summarize overall within-subjects effects (not by block anymore)
 
 The plot above is great for visualizing the general condition effect, but it contains no information about the nature of the within-subject effect. Below, we explore one way to visualize both the overall effect of condition, and the within-subject effects (slopes for each participant).
 
@@ -120,6 +133,7 @@ overall_2A <- subj_2A |>
   arrange(condition)
 overall_2A |> 
   kable()
+# outputs two rows of stats
 ```
 
 ## Visualize overall within-subject effects
@@ -140,7 +154,12 @@ p_within <- subj_2A %>%
   geom_point(data=overall_2A,aes(y=mean_accuracy),size=5,color="black")+
   geom_line(data=overall_2A,aes(y=mean_accuracy,group=1),size=2,color="black")+
   scale_color_brewer(palette="Set1")+
+<<<<<<< Updated upstream
   scale_fill_brewer(palette="Set1")+
+=======
+  scale_fill_brewer(palette="Set1")+ #^^ adds the individual data points
+  scale_x_discrete(limits=c("low","high"))+
+>>>>>>> Stashed changes
   theme(axis.title.x = element_text(face="bold", size=20),
         axis.text.x  = element_text(size=16),
         axis.title.y = element_text(face="bold", size=20),

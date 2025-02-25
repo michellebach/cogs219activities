@@ -76,6 +76,7 @@ ggplot(data = df.diamonds,
        mapping = aes(x = cut,
                      fill = color)) +
   geom_bar(color = "black")
+
 ```
 
 This bar chart shows for the different cuts (x-axis), the number of diamonds of different color. Stacked bar charts give a good general impression of the data. However, it's difficult to precisely compare different proportions.
@@ -172,8 +173,12 @@ What do boxplots show? Here adapted from `help(geom_boxplot())`:
 Boxplots are ok, but they have limitations. Many data sets are consistent with the same boxplot.
 
 ```{r box-plot-distributions1, echo=FALSE, fig.cap="Box plot distributions. Source: https://www.autodeskresearch.com/publications/samestats"}
+<<<<<<< Updated upstream
 #| label: fig-box-plot-distributions1
 include_graphics("figures/boxplots.gif")
+=======
+include_graphics("figures/boxplots.gif") #doesn't open?
+>>>>>>> Stashed changes
 ```
 
 @fig-box-plot-distributions1 shows three different distributions that each correspond to the same boxplot.
@@ -243,7 +248,7 @@ Try to make the plot shown in @fig-visualization2-practice1. Here is a tip:
 -   For the data argument in `ggplot()` use: `df.diamonds[1:10000, ]` (this selects the first 10000 rows).
 
 ```{r}
-# write your code here
+# write your code here, cant see figure
 ```
 
 ```{r visualization2-practice1, echo=FALSE, fig.cap='Practice plot 1.'}
